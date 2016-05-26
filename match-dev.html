@@ -118,8 +118,8 @@
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
         <li><a href="seifazer.html"><i class="fa fa-thumbs-o-up"></i> <span>Sei fazer</span></a></li>
-        <li class="active"><a href="querofazer.html"><i class="fa fa-hand-peace-o"></i> <span>Quero fazer</span></a></li>
-        <li><a href="match-dev.html"><i class="fa fa-bolt"></i> <span>Encontrar Job</span></a></li>
+        <li><a href="querofazer.html"><i class="fa fa-hand-peace-o"></i> <span>Quero fazer</span></a></li>
+        <li class="active"><a href="match-dev.html"><i class="fa fa-bolt"></i> <span>Encontrar Job</span></a></li>
         <li><a href="match-cliente.html"><i class="fa fa-users"></i> <span>Encontrar Dev</span></a></li>
         <li><a href="perfil.html"><i class="fa fa-user"></i> <span>Meu perfil</span></a></li>
       </ul>
@@ -141,102 +141,108 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="box box-primary" id="first-box-job-information">
-          <div class="box-header with-border">
-            <h3 class="box-title">Projeto Servidor Backend</h3>
-          </div>
-          <!-- /.box-header -->
-          <!-- form start -->
-          <form role="form">
-            <div class="box-body">
-              <div class="form-group">
-                <label>Tecnologia</label><br>
-                <small class="label label-info">#BACKEND</small>
-                <small class="label label-info">#ANGULAR</small>
-              </div>
-              <div class="form-group">
-                <label>Description</label>
-                <br><label><small>Pequeno servidor que irá tratar requisições vinda de terceiros.</small></label>
-              </div>
-              <div class="form-group">
-                <label>Cliente</label>
-                <br><label><small>Tecnew Soluções</small></label>
-              </div>
+      <div class="col-md-4">
+        <div class="box box-primary" id="first-box-job-information">
+            <div class="box-header with-border">
+              <h3 class="box-title">Projeto Servidor Backend</h3>
             </div>
-            <!-- /.box-body -->
-            <div class="box-footer">
-              <button class="btn btn-success">Accept</button>
-              <button type="button" class="btn btn-danger" id="decline1">Decline</button>
-            </div>
-          </form>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form">
+              <div class="box-body">
+                <div class="form-group">
+                  <label>Tecnologia</label><br>
+                  <small class="label label-info">#BACKEND</small>
+                  <small class="label label-info">#ANGULAR</small>
+                </div>
+                <div class="form-group">
+                  <label>Description</label>
+                  <br><label><small>Pequeno servidor que irá tratar requisições vinda de terceiros.</small></label>
+                </div>
+                <div class="form-group">
+                  <label>Cliente</label>
+                  <br><label><small>Tecnew Soluções</small></label>
+                </div>
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <button class="btn btn-success">Accept</button>
+                <button type="button" class="btn btn-danger pull-right" id="decline1">Decline</button>
+              </div>
+            </form>
+        </div>
       </div>
-      <div class="box box-primary" id="second-box-job-information">
-          <div class="box-header with-border">
-            <h3 class="box-title">Projeto Site de Vendas</h3>
-          </div>
-          <!-- /.box-header -->
-          <!-- form start -->
-          <form role="form">
-            <div class="box-body">
-              <div class="form-group">
-                <label>Tecnologia</label><br>
-                <small class="label label-info">#WEB</small>
-                <small class="label label-info">#CSS</small>
-                <small class="label label-info">#JQUERY</small>
-                <small class="label label-info">#JS</small>
-                <small class="label label-info">#BANCOORACLE</small>
-                <small class="label label-info">#JAVA</small>
-              </div>
-              <div class="form-group">
-                <label>Description</label>
-                <br><label><small>Site de vendas de bolos e doces gourmet.</small></label>
-              </div>
-              <div class="form-group">
-                <label>Cliente</label>
-                <br><label><small>Doces Mania</small></label>
-              </div>
+      <div class="col-md-4">
+        <div class="box box-primary" id="second-box-job-information">
+            <div class="box-header with-border">
+              <h3 class="box-title">Projeto Site de Vendas</h3>
             </div>
-            <!-- /.box-body -->
-            <div class="box-footer">
-              <button class="btn btn-success" >Accept</button>
-              <button class="btn btn-danger" id="decline2">Decline</button>
-            </div>
-          </form>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form">
+              <div class="box-body">
+                <div class="form-group">
+                  <label>Tecnologia</label><br>
+                  <small class="label label-info">#WEB</small>
+                  <small class="label label-info">#CSS</small>
+                  <small class="label label-info">#JQUERY</small>
+                  <small class="label label-info">#JS</small>
+                  <small class="label label-info">#BANCOORACLE</small>
+                  <small class="label label-info">#JAVA</small>
+                </div>
+                <div class="form-group">
+                  <label>Description</label>
+                  <br><label><small>Site de vendas de bolos e doces gourmet.</small></label>
+                </div>
+                <div class="form-group">
+                  <label>Cliente</label>
+                  <br><label><small>Doces Mania</small></label>
+                </div>
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <button class="btn btn-success" >Accept</button>
+                <button class="btn btn-danger pull-right" id="decline2">Decline</button>
+              </div>
+            </form>
+        </div>
       </div>
-      <div class="box box-primary" id="third-box-job-information">
-          <div class="box-header with-border">
-            <h3 class="box-title">Projeto B2B</h3>
-          </div>
-          <!-- /.box-header -->
-          <!-- form start -->
-          <form role="form">
-            <div class="box-body">
-              <div class="form-group">
-                <label>Tecnologia</label><br>
-                <small class="label label-info">#FULLAPPLICATION</small>
-                <small class="label label-info">#JAVAWEB</small>
-                <small class="label label-info">#BACKEND</small>
-                <small class="label label-info">#JS</small>
-                <small class="label label-info">#ANDROID</small>
-                <small class="label label-info">#WEB</small>
-                <small class="label label-info">#IOS</small>
-                <small class="label label-info">#B2B</small>
-              </div>
-              <div class="form-group">
-                <label>Description</label>
-                <br><label><small>Pojeto voltado para encontrar um tercerizado na area de transporte.</small></label>
-              </div>
-              <div class="form-group">
-                <label>Cliente</label>
-                <br><label><small>Transportes Brasil</small></label>
-              </div>
+      <div class="col-md-4">
+        <div class="box box-primary" id="third-box-job-information">
+            <div class="box-header with-border">
+              <h3 class="box-title">Projeto B2B</h3>
             </div>
-            <!-- /.box-body -->
-            <div class="box-footer">
-              <button class="btn btn-success">Accept</button>
-              <button class="btn btn-danger" id="decline3">Decline</button>
-            </div>
-          </form>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form">
+              <div class="box-body">
+                <div class="form-group">
+                  <label>Tecnologia</label><br>
+                  <small class="label label-info">#FULLAPPLICATION</small>
+                  <small class="label label-info">#JAVAWEB</small>
+                  <small class="label label-info">#BACKEND</small>
+                  <small class="label label-info">#JS</small>
+                  <small class="label label-info">#ANDROID</small>
+                  <small class="label label-info">#WEB</small>
+                  <small class="label label-info">#IOS</small>
+                  <small class="label label-info">#B2B</small>
+                </div>
+                <div class="form-group">
+                  <label>Description</label>
+                  <br><label><small>Pojeto voltado para encontrar um tercerizado na area de transporte.</small></label>
+                </div>
+                <div class="form-group">
+                  <label>Cliente</label>
+                  <br><label><small>Transportes Brasil</small></label>
+                </div>
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <button class="btn btn-success">Accept</button>
+                <button class="btn btn-danger pull-right" id="decline3">Decline</button>
+              </div>
+            </form>
+        </div>
       </div>
     </section>
     <!-- /.content -->
@@ -464,7 +470,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
 
 <script type="text/javascript">
-
 $(document).ready(function(){
   $("#decline1").click(function(){
       $("first-box-job-information").hide();
@@ -476,7 +481,6 @@ $(document).ready(function(){
       $("third-box-job-information").hide();
     });
 });
-
 </script>
 </body>
 </html>
