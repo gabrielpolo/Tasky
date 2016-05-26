@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Quero fazer</title>
+  <title>Encontrar Job</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -117,8 +117,8 @@
       <ul class="sidebar-menu">
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="seifazer.html"><i class="fa fa-thumbs-o-up"></i> <span>Sei fazer</span></a></li>
-        <li><a href="querofazer.html"><i class="fa fa-hand-peace-o"></i> <span>Quero fazer</span></a></li>
+        <li><a href="seifazer.html"><i class="fa fa-thumbs-o-up"></i> <span>Sei fazer</span></a></li>
+        <li class="active"><a href="querofazer.html"><i class="fa fa-hand-peace-o"></i> <span>Quero fazer</span></a></li>
         <li><a href="match-dev.html"><i class="fa fa-bolt"></i> <span>Encontrar Job</span></a></li>
         <li><a href="match-cliente.html"><i class="fa fa-users"></i> <span>Encontrar Dev</span></a></li>
         <li><a href="perfil.html"><i class="fa fa-user"></i> <span>Meu perfil</span></a></li>
@@ -134,92 +134,110 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        O que eu sei?
-        <small>tecnologias que domino</small>
+        Que tal um desses projetos?
+        <small></small>
       </h1>
     </section>
 
     <!-- Main content -->
     <section class="content">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="box" id="sei_fazer">
-            <div class="box-header with-border">
-              <h3 class="box-title">Sei fazer</h3>
-              <!-- <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                  <i class="fa fa-minus"></i></button>
-                  <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                    <i class="fa fa-times"></i></button>
-              </div> -->
-            </div>
+      <div class="box box-primary" id="first-box-job-information">
+          <div class="box-header with-border">
+            <h3 class="box-title">Projeto Servidor Backend</h3>
+          </div>
+          <!-- /.box-header -->
+          <!-- form start -->
+          <form role="form">
             <div class="box-body">
-                  <div class="col-lg-12">
-                    <input class="form-control" id="input_sei_fazer" placeholder="Título"/>
-                  </div>
-                  <div class="col-lg-8">
-                    <br/>
-                    <div class="form-group">
-                      <select class="form-control" id="hashtags_sei_fazer" multiple="multiple">
-                        <option value="java">#java</option>
-                        <option value="css">#css</option>
-                        <option value="c++">#c++</option>
-                        <option value="oracle">#oracle</option>
-                        <option value="webservice">#webservice</option>
-                        <option value="hadoop">#hadoop</option>
-                        <option value="bigdata">#bigdata</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-lg-4">
-                    <br/>
-                    <button class="btn" id="button_sei_fazer">Adicionar</button>
-                  </div>
+              <div class="form-group">
+                <label>Tecnologia</label><br>
+                <small class="label label-info">#BACKEND</small>
+                <small class="label label-info">#ANGULAR</small>
+              </div>
+              <div class="form-group">
+                <label>Description</label>
+                <br><label><small>Pequeno servidor que irá tratar requisições vinda de terceiros.</small></label>
+              </div>
+              <div class="form-group">
+                <label>Cliente</label>
+                <br><label><small>Tecnew Soluções</small></label>
+              </div>
             </div>
-          </div> <!-- /.box -->
-        </div> <!-- /.col-lg-5 -->
-
-
-        <div class="col-lg-6">
-          <div class="box" id="sei_fazer">
-            <div class="box-header with-border">
-              <h3 class="box-title">Lista do que sei fazer</h3>
-              <!-- <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                  <i class="fa fa-minus"></i></button>
-                  <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                    <i class="fa fa-times"></i></button>
-              </div> -->
+            <!-- /.box-body -->
+            <div class="box-footer">
+              <button class="btn btn-success">Accept</button>
+              <button type="button" class="btn btn-danger" id="decline1">Decline</button>
             </div>
+          </form>
+      </div>
+      <div class="box box-primary" id="second-box-job-information">
+          <div class="box-header with-border">
+            <h3 class="box-title">Projeto Site de Vendas</h3>
+          </div>
+          <!-- /.box-header -->
+          <!-- form start -->
+          <form role="form">
             <div class="box-body">
-              <ul id='lista_sei_fazer' class="todo-list ui-sortable">
-                <li class="">
-                  <!-- todo text -->
-                  <span class="text">Banco de dados Oracle</span>
-                  <!-- Emphasis label -->
-                  <small class="label label-info">#BD</small>
-                  <small class="label label-info">#ORACLE</small>
-                  <!-- General tools such as edit or delete-->
-                  <div  class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                  <span class="text">Desenvolvimento Java Web</span>
-                  <small class="label label-info">#JAVA</small>
-                  <small class="label label-info">#WEB</small>
-                  <small class="label label-info">#BOOTSTRAP</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-              </ul>
+              <div class="form-group">
+                <label>Tecnologia</label><br>
+                <small class="label label-info">#WEB</small>
+                <small class="label label-info">#CSS</small>
+                <small class="label label-info">#JQUERY</small>
+                <small class="label label-info">#JS</small>
+                <small class="label label-info">#BANCOORACLE</small>
+                <small class="label label-info">#JAVA</small>
+              </div>
+              <div class="form-group">
+                <label>Description</label>
+                <br><label><small>Site de vendas de bolos e doces gourmet.</small></label>
+              </div>
+              <div class="form-group">
+                <label>Cliente</label>
+                <br><label><small>Doces Mania</small></label>
+              </div>
             </div>
-          </div> <!-- /.box -->
-        </div> <!-- /.col-lg-5 -->
-      </div> <!-- /.row -->
+            <!-- /.box-body -->
+            <div class="box-footer">
+              <button class="btn btn-success" >Accept</button>
+              <button class="btn btn-danger" id="decline2">Decline</button>
+            </div>
+          </form>
+      </div>
+      <div class="box box-primary" id="third-box-job-information">
+          <div class="box-header with-border">
+            <h3 class="box-title">Projeto B2B</h3>
+          </div>
+          <!-- /.box-header -->
+          <!-- form start -->
+          <form role="form">
+            <div class="box-body">
+              <div class="form-group">
+                <label>Tecnologia</label><br>
+                <small class="label label-info">#FULLAPPLICATION</small>
+                <small class="label label-info">#JAVAWEB</small>
+                <small class="label label-info">#BACKEND</small>
+                <small class="label label-info">#JS</small>
+                <small class="label label-info">#ANDROID</small>
+                <small class="label label-info">#WEB</small>
+                <small class="label label-info">#IOS</small>
+                <small class="label label-info">#B2B</small>
+              </div>
+              <div class="form-group">
+                <label>Description</label>
+                <br><label><small>Pojeto voltado para encontrar um tercerizado na area de transporte.</small></label>
+              </div>
+              <div class="form-group">
+                <label>Cliente</label>
+                <br><label><small>Transportes Brasil</small></label>
+              </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+              <button class="btn btn-success">Accept</button>
+              <button class="btn btn-danger" id="decline3">Decline</button>
+            </div>
+          </form>
+      </div>
     </section>
     <!-- /.content -->
   </div>
@@ -446,42 +464,19 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
 
 <script type="text/javascript">
-$("#hashtags_sei_fazer").select2({
-  placeholder: "Selecione pelo menos uma tag"
+
+$(document).ready(function(){
+  $("#decline1").click(function(){
+      $("first-box-job-information").hide();
+    });
+  $("#decline2").click(function(){
+      $("second-box-job-information").hide();
+    });
+  $("#decline3").click(function(){
+      $("third-box-job-information").hide();
+    });
 });
-$("#hashtags_quero_fazer").select2({
-  placeholder: "Selecione pelo menos uma tag"
-});
 
-function getHashTagsString()
-{
-  var values = $('#hashtags_sei_fazer').val();
-  var hashtag_string = "";
-  values.forEach(function(value){
-    //"<small class=\"label label-info\"> #" + "BD" + "</small>" +
-    hashtag_string += "<small class=\"label label-info\"> #" + value + "</small>";
-  });
-
-  return hashtag_string;
-
-}
-
-$("#button_sei_fazer").click(function(){
-
-    var title = $("#input_sei_fazer")[0].value
-    var hashtags_string = getHashTagsString();
-
-    var row = "<li class=\"\">" +
-      "<span class=\"text\">" + title + "</span>" +
-      hashtags_string +
-      "<div  class=\"tools\"> " +
-        "<i class=\"fa fa-edit\"></i>" +
-        "<i class=\"fa fa-trash-o\"></i>" +
-      "</div>" +
-    "</li>";
-
-    $("#lista_sei_fazer").append(row);
-});
 </script>
 </body>
 </html>
