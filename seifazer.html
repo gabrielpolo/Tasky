@@ -143,7 +143,7 @@
         <div class="col-lg-6">
           <div class="box" id="sei_fazer">
             <div class="box-header with-border">
-              <h3 class="box-title">Sei fazer</h3>
+              <h3 class="box-title">Criar novo serviço</h3>
               <!-- <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                   <i class="fa fa-minus"></i></button>
@@ -171,9 +171,11 @@
                   </div>
                   <div class="col-lg-4">
                     <br/>
-                    <button class="btn" id="button_sei_fazer">Adicionar</button>
+                    <button class="btn" id="button_sei_fazer">Adicionar serviço</button>
                   </div>
             </div>
+            <div id='message_alert' class="" role="alert">
+           </div>
           </div> <!-- /.box -->
         </div> <!-- /.col-lg-5 -->
 
@@ -198,9 +200,9 @@
                   <small class="label label-info">#BD</small>
                   <small class="label label-info">#ORACLE</small>
                   <!-- General tools such as edit or delete-->
-                  <div  class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
+                  <div class="btn-group" role="group" aria-label="...">
+                      <!-- <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseExample_1" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-list"></i></button> -->
+                      <button type="button" class="btn btn-default" id="remove_1"><i class="fa fa-trash-o"></i></button>
                   </div>
                 </li>
                 <li>
@@ -208,9 +210,9 @@
                   <small class="label label-info">#JAVA</small>
                   <small class="label label-info">#WEB</small>
                   <small class="label label-info">#BOOTSTRAP</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
+                  <div class="btn-group" role="group" aria-label="...">
+                      <!-- <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseExample_1" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-list"></i></button> -->
+                      <button type="button" class="btn btn-default" id="remove_2"><i class="fa fa-trash-o"></i></button>
                   </div>
                 </li>
               </ul>
@@ -444,6 +446,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
 
 <script type="text/javascript">
+
+var index_row = 3;
+
 $("#hashtags_sei_fazer").select2({
   placeholder: "Selecione pelo menos uma tag"
 });
@@ -455,31 +460,61 @@ function getHashTagsString()
 {
   var values = $('#hashtags_sei_fazer').val();
   var hashtag_string = "";
-  values.forEach(function(value){
-    //"<small class=\"label label-info\"> #" + "BD" + "</small>" +
-    hashtag_string += "<small class=\"label label-info\"> #" + value + "</small>";
-  });
+
+  if(values != null){
+    values.forEach(function(value){
+      //"<small class=\"label label-info\"> #" + "BD" + "</small>" +
+      hashtag_string += "<small class=\"label label-info\"> #" + value + "</small>";
+    });
+
+  }
 
   return hashtag_string;
 
 }
+function removeRow(value)
+{
+  var button_group = value.currentTarget.parentNode;
+  button_group.parentNode.remove();
+}
+function showMessageAlert(class_alert, text_message)
+{
+    $("#message_alert").removeClass();
+    $("#message_alert").addClass("alert " + class_alert);
+    $("#message_alert").text(text_message);
+}
 
 $("#button_sei_fazer").click(function(){
 
+    showMessageAlert("", "");
+
+    index_row++;
     var title = $("#input_sei_fazer")[0].value
     var hashtags_string = getHashTagsString();
 
-    var row = "<li class=\"\">" +
-      "<span class=\"text\">" + title + "</span>" +
-      hashtags_string +
-      "<div  class=\"tools\"> " +
-        "<i class=\"fa fa-edit\"></i>" +
-        "<i class=\"fa fa-trash-o\"></i>" +
-      "</div>" +
-    "</li>";
+    if(title.length == 0)
+      showMessageAlert("alert-danger", "Erro! Não foi criado um título para o item");
+    else if(hashtags_string.length == 0)
+      showMessageAlert("alert-danger", "Erro! Não foi adicionada nenhuma tag");
+    else {
+        var row = "<li class=\"\">" +
+          "<span class=\"text\">" + title + "</span>" +
+          hashtags_string +
+          " <div class=\"btn-group\" role=\"group\" aria-label=\"...\">" +
+              // "<button type=\"button\" class=\"btn btn-default\" data-toggle=\"collapse\" data-target='#collapseExample_" + index_row + "' aria-expanded=\"false\" aria-controls='#collapseExample_" + index_row + "'><i class=\"fa fa-list\"></i></button>" +
+              "<button type=\"button\" class=\"btn btn-default\" id='remove_" + index_row + "'><i class=\"fa fa-trash-o\"></i></button>" +
+          "</div>" +
+        "</li>";
 
-    $("#lista_sei_fazer").append(row);
+        $("#lista_sei_fazer").append(row);
+
+        $("#remove_" + index_row).click(function(value){
+            removeRow(value);
+        });
+    }
+
 });
+
 </script>
 </body>
 </html>

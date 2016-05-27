@@ -144,7 +144,7 @@
         <div class="col-lg-6">
           <div class="box" id="sei_fazer">
             <div class="box-header with-border">
-              <h3 class="box-title">Quero fazer</h3>
+              <h3 class="box-title">Criar novo projeto</h3>
               <!-- <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                   <i class="fa fa-minus"></i></button>
@@ -184,6 +184,8 @@
 					<button class="btn" id="button_quero_fazer">Criar projeto</button>
 				</div>
 			</div>
+      <div id='message_alert' class="" role="alert">
+     </div>
 			<!--<div class="box">
 				<div class="box-header">
 				   tools box
@@ -232,7 +234,7 @@
                   <small class="label label-info">#ORACLE</small>
                   <div class="btn-group" role="group" aria-label="...">
                       <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseExample_1" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-list"></i></button>
-                      <button type="button" class="btn btn-default"><i class="fa fa-trash-o"></i></button>
+                      <button type="button" class="btn btn-default" id="remove_1"><i class="fa fa-trash-o"></i></button>
                   </div>
                   <div class="collapse" id="collapseExample_1">
                     <div class="well">
@@ -247,7 +249,7 @@
                   <small class="label label-info">#BOOTSTRAP</small>
                   <div class="btn-group" role="group" aria-label="...">
                       <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseExample_2" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-list"></i></button>
-                      <button type="button" class="btn btn-default"><i class="fa fa-trash-o"></i></button>
+                      <button type="button" class="btn btn-default" id="remove_2"><i class="fa fa-trash-o"></i></button>
                   </div>
                   <div class="collapse" id="collapseExample_2">
                     <div class="well">
@@ -495,54 +497,64 @@ $("#hashtags_sei_fazer").select2({
 $("#hashtags_quero_fazer").select2({
   placeholder: "Selecione pelo menos uma tag"
 });
-
 function getHashTagsString()
 {
   var values = $('#hashtags_quero_fazer').val();
   var hashtag_string = "";
-  values.forEach(function(value){
-    //"<small class=\"label label-info\"> #" + "BD" + "</small>" +
-    hashtag_string += "<small class=\"label label-info\"> #" + value + "</small>";
-  });
+
+  if(values != null){
+    values.forEach(function(value){
+      //"<small class=\"label label-info\"> #" + "BD" + "</small>" +
+      hashtag_string += "<small class=\"label label-info\"> #" + value + "</small>";
+    });
+ }
 
   return hashtag_string;
-
 }
-
+function showMessageAlert(class_alert, text_message)
+{
+    $("#message_alert").removeClass();
+    $("#message_alert").addClass("alert " + class_alert);
+    $("#message_alert").text(text_message);
+}
 $("#button_quero_fazer").click(function(){
 
+    showMessageAlert("", "");
+
+    index_row++;
     var title = $("#input_title_want_do")[0].value
     var description = $("#description_quero_fazer")[0].value
     var hashtags_string = getHashTagsString();
 
-    var row = "<li class=\"\">" +
-      "<span class=\"text\">" + title + "</span>" +
-      hashtags_string +
-      " <div class=\"btn-group\" role=\"group\" aria-label=\"...\">" +
-          "<button type=\"button\" class=\"btn btn-default\" data-toggle=\"collapse\" data-target='#collapseExample_" + index_row + "' aria-expanded=\"false\" aria-controls='#collapseExample_" + index_row + "'><i class=\"fa fa-list\"></i></button>" +
-          "<button type=\"button\" class=\"btn btn-default\"><i class=\"fa fa-trash-o\"></i></button>" +
-          <!-- listar talvez -->
-      "</div>" +
-      "<div class=\"collapse\" id='collapseExample_" + index_row + "' >" +
-        "<div class=\"well\">" +
-        description +
-        "</div>" +
-      "</div>" +
-    "</li>";
+    if(title.length == 0)
+      showMessageAlert("alert-danger", "Erro! Não foi criado um título para o item");
+    else if(hashtags_string.length == 0)
+      showMessageAlert("alert-danger", "Erro! Não foi adicionada nenhuma tag");
+    else if(description.length == 0)
+      showMessageAlert("alert-danger", "Erro! Não foi adicionada descrição do projeto");
+    else {
+        var row = "<li class=\"\">" +
+          "<span class=\"text\">" + title + "</span>" +
+          hashtags_string +
+          " <div class=\"btn-group\" role=\"group\" aria-label=\"...\">" +
+              "<button type=\"button\" class=\"btn btn-default\" data-toggle=\"collapse\" data-target='#collapseExample_" + index_row + "' aria-expanded=\"false\" aria-controls='#collapseExample_" + index_row + "'><i class=\"fa fa-list\"></i></button>" +
+              "<button type=\"button\" class=\"btn btn-default\" id='remove_" + index_row + "'><i class=\"fa fa-trash-o\"></i></button>" +
+          "</div>" +
+          "<div class=\"collapse\" id='collapseExample_" + index_row + "' >" +
+            "<div class=\"well\">" +
+            description +
+            "</div>" +
+          "</div>" +
+        "</li>";
 
-    $("#lista_quero_fazer").append(row);
+        $("#lista_quero_fazer").append(row);
 
-    ++index_row;
+        $("#remove_" + index_row).click(function(value){
+            var button_group = value.currentTarget.parentNode;
+            button_group.parentNode.remove();
+        });
 
-    // <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    //   Button with data-target
-    // </button>
-    // <div class="collapse" id="collapseExample">
-    //   <div class="well">
-    //     ...
-    //   </div>
-    // </div>
-
+  }
 });
 </script>
 </body>
