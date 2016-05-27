@@ -44,35 +44,25 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Bem-vindo ao Tasky!</p>
+    <p class="login-box-msg">Esqueceu sua senha?</p>
 
-    <form method="post" action="javascript:calcular()">
+    <form method="post" action="login.html">
       <div class="form-group has-feedback">
-        <input type="email" id="email" class="form-control" placeholder="Email">
+        <input type="email" id="email" class="form-control" placeholder="Digite seu email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Senha">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
         <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label>
-              <input type="checkbox"> Lembrar-me
-            </label>
-          </div>
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" id="submit_user" onClick="calcular()" class="btn btn-primary btn-block btn-flat">Entrar</button>
+          <button type="submit" id="submit_user" class="btn btn-primary btn-fla">Enviar senha</button>
         </div>
         <!-- /.col -->
       </div>
     </form>
 
-    <a href="remember.html">Esqueci minha senha</a><br>
-    <a href="register.html" class="text-center">Criar uma conta</a>
+    <a href="login.html" class="text-center">Voltar ao login</a>
 
   </div>
   <!-- /.login-box-body -->
@@ -85,26 +75,6 @@
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <!-- iCheck -->
 <script src="plugins/iCheck/icheck.min.js"></script>
-<script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' // optional
-    });
-  });
 
-function calcular(){
-  var user = document.getElementById("email").value;
-
-  if(user=="dev@tasky.com"){
-    window.location.href = "match-dev.html";
-  }
-  else {
-    window.location.href = "match-cliente.html";
-  }
-}
-
-</script>
 </body>
 </html>
