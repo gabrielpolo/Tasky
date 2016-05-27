@@ -46,9 +46,9 @@
   <div class="login-box-body">
     <p class="login-box-msg">Bem-vindo ao Tasky!</p>
 
-    <form action="seifazer.html" method="post">
+    <form method="post" action="javascript:calcular()">
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        <input type="email" id="email" class="form-control" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
@@ -65,7 +65,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
+          <button type="submit" id="submit_user" onClick="calcular()" class="btn btn-primary btn-block btn-flat">Entrar</button>
         </div>
         <!-- /.col -->
       </div>
@@ -93,6 +93,18 @@
       increaseArea: '20%' // optional
     });
   });
+
+function calcular(){
+  var user = document.getElementById("email").value;
+
+  if(user=="desenvolvedor@gmail.com"){
+    window.location.href = "match-dev.html";
+  }
+  else {
+    window.location.href = "match-cliente.html";
+  }
+}
+
 </script>
 </body>
 </html>
