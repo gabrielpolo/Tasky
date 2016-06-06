@@ -446,31 +446,24 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
 
 <script type="text/javascript">
-
 var index_row = 3;
-
 $("#hashtags_sei_fazer").select2({
   placeholder: "Selecione pelo menos uma tag"
 });
 $("#hashtags_quero_fazer").select2({
   placeholder: "Selecione pelo menos uma tag"
 });
-
 function getHashTagsString()
 {
   var values = $('#hashtags_sei_fazer').val();
   var hashtag_string = "";
-
   if(values != null){
     values.forEach(function(value){
       //"<small class=\"label label-info\"> #" + "BD" + "</small>" +
       hashtag_string += "<small class=\"label label-info\"> #" + value + "</small>";
     });
-
   }
-
   return hashtag_string;
-
 }
 function removeRow(value)
 {
@@ -483,15 +476,17 @@ function showMessageAlert(class_alert, text_message)
     $("#message_alert").addClass("alert " + class_alert);
     $("#message_alert").text(text_message);
 }
-
+$("#remove_1").click(function(value){
+    removeRow(value);
+});
+$("#remove_2").click(function(value){
+    removeRow(value);
+});
 $("#button_sei_fazer").click(function(){
-
     showMessageAlert("", "");
-
     index_row++;
     var title = $("#input_sei_fazer")[0].value
     var hashtags_string = getHashTagsString();
-
     if(title.length == 0)
       showMessageAlert("alert-danger", "Erro! Não foi criado um título para o item");
     else if(hashtags_string.length == 0)
@@ -505,16 +500,12 @@ $("#button_sei_fazer").click(function(){
               "<button type=\"button\" class=\"btn btn-default\" id='remove_" + index_row + "'><i class=\"fa fa-trash-o\"></i></button>" +
           "</div>" +
         "</li>";
-
         $("#lista_sei_fazer").append(row);
-
         $("#remove_" + index_row).click(function(value){
             removeRow(value);
         });
     }
-
 });
-
 </script>
 </body>
 </html>
