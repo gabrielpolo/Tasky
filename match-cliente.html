@@ -19,7 +19,8 @@
   <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
   <!-- Select2 -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet" />
-
+  <!-- Bootstrap-tour -->
+  <link href="plugins/bootstrap-tour/bootstrap-tour-standalone.min.css" rel="stylesheet" />
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -117,9 +118,9 @@
       <ul class="sidebar-menu">
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="querofazer.html"><i class="fa fa-hand-peace-o"></i> <span>Quero fazer</span></a></li>
-        <li class="active"><a href="match-cliente.html"><i class="fa fa-users"></i> <span>Encontrar Dev</span></a></li>
-        <li><a href="perfil-cliente.html"><i class="fa fa-user"></i> <span>Meu perfil</span></a></li>
+        <li><a href="querofazer.html"><i class="fa fa-hand-peace-o"></i> <span class="quero-fazer-button">Quero fazer</span></a></li>
+        <li class="active"><a href="match-cliente.html"><i class="fa fa-users"></i> <span class="encontrar-dev-button">Encontrar Dev</span></a></li>
+        <li><a href="perfil-cliente.html"><i class="fa fa-user"></i> <span class="meu-perfil-button">Meu perfil</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -156,7 +157,7 @@
               </div>
               <div class="form-group">
                 <label>Desenvolvedores interessados</label><br>
-                <small class="label label-warning" data-toggle="modal" data-target="#ModalNadia">Nadia</small>
+                <small class="label label-warning" data-toggle="modal" data-target="#ModalNadia" id="dev1">Nadia</small>
               </div>
             </div>
           </form>
@@ -591,12 +592,48 @@
 <script src="dist/js/demo.js"></script>
 <!-- Select2 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
+<!-- Bootstrap tour -->
+<script src="plugins/bootstrap-tour/bootstrap-tour-standalone.min.js"></script>
 
 <script type="text/javascript">
 
-$(document).ready(function(){
-
+// Instance the tour
+var tour = new Tour({
+  steps: [
+  {
+    element: ".sidebar-toggle",
+    title: "Bem-vindo ao Tasky!",
+    content: "Vamos fazer um rápido tour para aprender a usar o Tasky?"
+  },
+  {
+    element: ".quero-fazer-button",
+    content: "Aqui você pode gerenciar o cadastro das coisas que você quer fazer, suas ideias e projetos que estão à procura de um desenvolvedor!"
+  },
+  {
+    element: ".encontrar-dev-button",
+    content: "Esse botão te leva para a tela que já estamos, onde você encontra os desenvolvedores que toparam fazer seus projetos. <br> Vamos dar uma olhada?"
+  },
+  {
+    element: "#primeiro-box-job-information",
+    content: "É dessa forma que irão aparecer os desenvolvedores que aceitaram alguma ideia sua!"
+  },
+  {
+    element: "#dev1",
+    content: "Clicando aqui você pode ver todas as informações de quem se ofereceu pra participar do seu projeto. <br>Aí é só entrar em contato pelo telefone ou e-mail que a pessoa deixou disponível!"
+  },
+  {
+    element: ".meu-perfil-button",
+    content: "Por fim, o seu perfil. É assim que os desenvolvedores verão os projetos que você já criou."
+  }
+],
+  backdrop: true,
+  storage: false,
+  backdropPadding: 0
 });
+
+tour.init();
+
+tour.start();
 
 </script>
 </body>
