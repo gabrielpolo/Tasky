@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
   <!-- Select2 -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet" />
+  <!-- Bootstrap-tour -->
+  <link href="plugins/bootstrap-tour/bootstrap-tour-standalone.min.css" rel="stylesheet" />
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -117,9 +119,9 @@
       <ul class="sidebar-menu">
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="seifazer.html"><i class="fa fa-thumbs-o-up"></i> <span>Sei fazer</span></a></li>
-        <li class="active"><a href="match-dev.html"><i class="fa fa-bolt"></i> <span>Encontrar Job</span></a></li>
-        <li><a href="perfil.html"><i class="fa fa-user"></i> <span>Meu perfil</span></a></li>
+        <li><a href="seifazer.html"><i class="fa fa-thumbs-o-up"></i> <span class="sei-fazer-button">Sei fazer</span></a></li>
+        <li class="active"><a href="match-dev.html"><i class="fa fa-bolt"></i> <span class="encontrar-job-button">Encontrar Job</span></a></li>
+        <li><a href="perfil.html"><i class="fa fa-user"></i> <span class="meu-perfil-button">Meu perfil</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -164,7 +166,7 @@
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                <button class="btn btn-success">Aceitar</button>
+                <button class="btn btn-success" id="aceitar1">Aceitar</button>
                 <button type="button" class="btn btn-danger pull-right" id="Rejeitar1">Rejeitar</button>
               </div>
             </form>
@@ -466,6 +468,9 @@
 <script src="dist/js/demo.js"></script>
 <!-- Select2 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
+<!-- Bootstrap tour -->
+<script src="plugins/bootstrap-tour/bootstrap-tour-standalone.min.js"></script>
+
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -479,6 +484,46 @@ $(document).ready(function(){
       $("third-box-job-information").hide();
     });
 });
+
+
+
+// Instance the tour
+var tour = new Tour({
+  steps: [
+  {
+    element: ".sidebar-toggle",
+    title: "Bem-vindo ao Tasky!",
+    content: "Vamos fazer um rápido tour para aprender a usar o Tasky?"
+  },
+  {
+    element: ".sei-fazer-button",
+    content: "Aqui você pode gerenciar o cadastro das coisas que você sabe fazer, ou seja, o que está oferecendo no Tasky."
+  },
+  {
+    element: ".encontrar-job-button",
+    content: "Esse botão te leva para a tela que já estamos, onde você encontra os projetos que se encaixam com o seu perfil. <br> Vamos dar uma olhada?"
+  },
+  {
+    element: "#first-box-job-information",
+    content: "É dessa forma que irão aparecer os jobs que se encaixam no seu perfil! <br> Você poderá aceitá-los ou recusá-los, para que dessa forma o cliente receba o seu contato!"
+  },
+  {
+    element: "#aceitar1",
+    content: "Ao aceitar, o cliente recebe seu e-mail e seu telefone. Aí é só torcer para ele gostar do seu perfil e entrar em contato com você!"
+  },
+  {
+    element: ".meu-perfil-button",
+    content: "Por fim, o seu perfil. É assim que os clientes verão os projetos que você já participou e as tecnologias que você domina."
+  }
+],
+  backdrop: true,
+  storage: false,
+  backdropPadding: 0
+});
+
+tour.init();
+
+tour.start();
 </script>
 </body>
 </html>
